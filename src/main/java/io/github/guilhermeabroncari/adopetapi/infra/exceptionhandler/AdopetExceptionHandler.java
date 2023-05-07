@@ -1,4 +1,4 @@
-package io.github.guilhermeabroncari.adopetapi.infra;
+package io.github.guilhermeabroncari.adopetapi.infra.exceptionhandler;
 
 import io.github.guilhermeabroncari.adopetapi.domain.exception.DomainNotFoundException;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +17,10 @@ public class AdopetExceptionHandler {
     }
     @ExceptionHandler(DomainNotFoundException.class)
     public ResponseEntity notFoundByClientSide(DomainNotFoundException ex) {
+        return ResponseEntity.badRequest().body(ex.getMessage());
+    }
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity invalidEmail(IllegalArgumentException ex) {
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
 
