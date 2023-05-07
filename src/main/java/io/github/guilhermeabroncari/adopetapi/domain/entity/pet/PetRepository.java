@@ -11,6 +11,4 @@ public interface PetRepository extends JpaRepository<Pet, Long> {
 
     long countByAdoptedFalse();
 
-    DoubleStream findAllByShelterIdByAdoptedFalse(Long id, Pageable pageable);
-
 }
