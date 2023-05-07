@@ -20,4 +20,4 @@ EXPOSE 8080
 #ENV DATASOURCE_PASSWORD=Lf94r7l2uVaPsJ0EVBGr
 #, "--spring.profiles.active=prod"
 
-ENTRYPOINT ["java", "-jar", "adopet-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "adopet-api-0.0.1-SNAPSHOT.jar"]
