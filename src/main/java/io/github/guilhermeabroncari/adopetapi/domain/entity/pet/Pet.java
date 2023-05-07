@@ -1,5 +1,7 @@
 package io.github.guilhermeabroncari.adopetapi.domain.entity.pet;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.github.guilhermeabroncari.adopetapi.domain.entity.shelter.Shelter;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -12,6 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 public class Pet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,8 +28,8 @@ public class Pet {
     private Boolean adopted;
     @Column(name = "image")
     private String petProfileImage;
-    @Column(name = "shelter_id")
-    private Long shelter;
+    @ManyToOne
+    private Shelter shelter;
 
     public Pet(PetRequestDTO dto) {
         this.name = dto.name();
@@ -35,5 +38,13 @@ public class Pet {
         this.description = dto.description();
         this.adopted = false;
         this.petProfileImage = dto.petProfileImage();
+    }
+
+    public void update(PetUpdateDTO petUpdateDTO) {
+        if(petUpdateDTO.name() != null) this.name = petUpdateDTO.name();
+        if(petUpdateDTO.yearsOld() != null) this.yearsOld = petUpdateDTO.yearsOld();
+        if(petUpdateDTO.animalSize() != null) this.animalSize = petUpdateDTO.animalSize();
+        if(petUpdateDTO.description() != null) this.description = petUpdateDTO.description();
+        if(petUpdateDTO.petProfileImage() != null) this.petProfileImage = petUpdateDTO.petProfileImage();
     }
 }
