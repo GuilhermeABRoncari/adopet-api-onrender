@@ -1,8 +1,10 @@
 package io.github.guilhermeabroncari.adopetapi.domain.entity.adress;
 
 import jakarta.persistence.Embeddable;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@Getter
 @Embeddable
 @NoArgsConstructor
 public class Adress {

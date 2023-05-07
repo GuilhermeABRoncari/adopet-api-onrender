@@ -31,13 +31,14 @@ public class Pet {
     @ManyToOne
     private Shelter shelter;
 
-    public Pet(PetRequestDTO dto) {
+    public Pet(PetRequestDTO dto, Shelter shelter) {
         this.name = dto.name();
         this.yearsOld = dto.yearsOld();
         this.animalSize = dto.animalSize();
         this.description = dto.description();
         this.adopted = false;
         this.petProfileImage = dto.petProfileImage();
+        this.shelter = shelter;
     }
 
     public void update(PetUpdateDTO petUpdateDTO) {

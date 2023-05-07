@@ -26,4 +26,8 @@ public class TutorService {
         tutorRepository.save(tutor);
         return new UserResponseDTO(tutor);
     }
+
+    public boolean exists(String email) {
+        return tutorRepository.existsByEmail(email);
+    }
 }

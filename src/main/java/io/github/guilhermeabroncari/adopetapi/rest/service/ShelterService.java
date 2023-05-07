@@ -26,4 +26,8 @@ public class ShelterService {
         shelterRepository.save(shelter);
         return new UserResponseDTO(shelter);
     }
+
+    public boolean exists(String email) {
+        return shelterRepository.existsByEmail(email);
+    }
 }
