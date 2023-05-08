@@ -32,4 +32,11 @@ public class AdopetMessage {
     private Shelter shelter;
     @ManyToOne
     private Pet pet;
+
+    public void update(AdopetMessageUpdateDTO dto) {
+        if (dto.message() != null) {
+            this.message = dto.message();
+            this.dateTime = OffsetDateTime.now();
+        }
+    }
 }
