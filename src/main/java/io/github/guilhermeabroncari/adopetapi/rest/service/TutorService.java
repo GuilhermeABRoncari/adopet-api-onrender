@@ -28,7 +28,8 @@ public class TutorService {
     public UserResponseDTO sign(UserRequestDTO dto) {
         if (tutorRepository.existsByEmail(dto.email())) throw new IllegalArgumentException(INVALID_EMAIL);
         var tutor = new Tutor(null, dto.userName(), dto.email(), dto.phone(),
-                securityConfigurations.passwordEncoder().encode(dto.password()), dto.about(), dto.profileImage(), new Adress(dto.adress()));
+                securityConfigurations.passwordEncoder().encode(dto.password()), dto.about(),
+                dto.profileImage(), new Adress(dto.adress()), null);
         tutorRepository.save(tutor);
         return new UserResponseDTO(tutor);
     }

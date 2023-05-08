@@ -1,6 +1,7 @@
 package io.github.guilhermeabroncari.adopetapi.domain.entity.tutor;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.github.guilhermeabroncari.adopetapi.domain.entity.adopetmessage.AdopetMessage;
 import io.github.guilhermeabroncari.adopetapi.domain.entity.adress.Adress;
 import io.github.guilhermeabroncari.adopetapi.domain.entity.user.UserRequestDTO;
 import jakarta.persistence.*;
@@ -14,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.beans.Encoder;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -38,6 +40,8 @@ public class Tutor implements UserDetails {
     private String tutorProfileImage;
     @Embedded
     private Adress adress;
+    @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)
+    private List<AdopetMessage> messageList = new ArrayList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

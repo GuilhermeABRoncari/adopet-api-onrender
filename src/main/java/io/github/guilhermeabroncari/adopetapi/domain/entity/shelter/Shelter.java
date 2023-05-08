@@ -1,6 +1,7 @@
 package io.github.guilhermeabroncari.adopetapi.domain.entity.shelter;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.github.guilhermeabroncari.adopetapi.domain.entity.adopetmessage.AdopetMessage;
 import io.github.guilhermeabroncari.adopetapi.domain.entity.adress.Adress;
 import io.github.guilhermeabroncari.adopetapi.domain.entity.pet.Pet;
 import jakarta.persistence.*;
@@ -39,6 +40,8 @@ public class Shelter implements UserDetails {
     private Adress adress;
     @OneToMany(mappedBy = "shelter", cascade = CascadeType.ALL)
     private List<Pet> petList = new ArrayList<>();
+    @OneToMany(mappedBy = "shelter", cascade = CascadeType.ALL)
+    private List<AdopetMessage> messageList = new ArrayList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -11,4 +11,5 @@ public interface PetRepository extends JpaRepository<Pet, Long> {
 
     long countByAdoptedFalse();
 
+    Pet findByNameLike(String petName);
 }
