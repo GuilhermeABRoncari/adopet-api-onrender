@@ -50,7 +50,7 @@ public class Shelter implements UserDetails {
         return this.email;
     }
 
-    public String getPassord() {
+    public String getPassword() {
         return this.password;
     }
 
@@ -72,5 +72,13 @@ public class Shelter implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public void update(ShelterUpdateDTO dto) {
+        if (dto.shelterName() != null) this.shelterName = dto.shelterName();
+        if (dto.phone() != null) this.password = dto.phone();
+        if (dto.about() != null) this.about = dto.about();
+        if (dto.profileImage() != null) this.shelterProfileImage = dto.profileImage();
+        if (dto.adress() != null) this.adress.update(dto);
     }
 }
