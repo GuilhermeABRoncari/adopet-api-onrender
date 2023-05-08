@@ -55,6 +55,6 @@ public class ShelterService {
         signService.passwordValidation(deleteRequest.password(), deleteRequest.confirmationPassword());
         if (!securityConfigurations.passwordEncoder().matches(deleteRequest.password(), shelter.getPassword())) throw new IllegalArgumentException("Invalid password.");
         if (!shelter.getPetList().isEmpty()) throw new IllegalArgumentException(TAKE_CARE_OF);
-            shelterRepository.delete(shelter);
+        shelterRepository.delete(shelter);
     }
 }

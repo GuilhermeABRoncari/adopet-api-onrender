@@ -79,6 +79,6 @@ public class Shelter implements UserDetails {
         if (dto.phone() != null) this.password = dto.phone();
         if (dto.about() != null) this.about = dto.about();
         if (dto.profileImage() != null) this.shelterProfileImage = dto.profileImage();
-        if (dto.adress() != null) this.adress.update(dto);
+        if (dto.adress() != null) this.adress.update(dto.adress());
     }
 }

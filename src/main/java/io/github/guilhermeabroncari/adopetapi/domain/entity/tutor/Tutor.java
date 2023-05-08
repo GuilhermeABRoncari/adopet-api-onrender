@@ -72,4 +72,12 @@ public class Tutor implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public void update(TutorUpdateDTO dto) {
+        if (dto.tutorName() != null) this.tutorName = dto.tutorName();
+        if (dto.phone() != null) this.phone = dto.phone();
+        if (dto.about() != null) this.about = dto.about();
+        if (dto.profileImage() != null) this.tutorProfileImage = dto.profileImage();
+        if (dto.adress() != null) this.adress.update(dto.adress());
+    }
 }
