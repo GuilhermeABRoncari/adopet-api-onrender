@@ -48,4 +48,8 @@ public class Pet {
         if(petUpdateDTO.description() != null) this.description = petUpdateDTO.description();
         if(petUpdateDTO.petProfileImage() != null) this.petProfileImage = petUpdateDTO.petProfileImage();
     }
+
+    public void adoption() {
+        this.adopted = true;
+    }
 }

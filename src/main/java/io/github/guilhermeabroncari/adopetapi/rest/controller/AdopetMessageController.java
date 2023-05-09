@@ -43,6 +43,7 @@ public class AdopetMessageController {
     }
 
     @PutMapping
+    @Secured("ROLE_TUTOR")
     public AdopetMessageResponseDTO update(@RequestBody @Valid AdopetMessageUpdateDTO dto) {
         String email = getEmail();
         return adopetMessageService.updateMessage(email, dto);

@@ -19,7 +19,6 @@ import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -86,23 +85,13 @@ public class AdopetMessageService {
 
     @Transactional
     public AdopetMessageResponseDTO updateMessage(String email, AdopetMessageUpdateDTO dto) {
-        var message = adopetMessageRepository.findById(dto.messageId()).orElseThrow(() -> new IllegalArgumentException(ENTITY_NOT_FOUND + "message"));
         Tutor tutor = (Tutor) tutorRepository.findByEmail(email);
-        if (tutor != null) {
-            if (tutor.getMessageList().contains(message)) {
-                message.update(dto);
-                adopetMessageRepository.save(message);
-                return new AdopetMessageResponseDTO(message);
-            }
-        } else {
-            Shelter shelter = (Shelter) shelterRepository.findByEmail(email);
-            if (shelter.getMessageList().contains(message)) {
-                message.update(dto);
-                adopetMessageRepository.save(message);
-                return new AdopetMessageResponseDTO(message);
-            }
-        }
-        throw new IllegalArgumentException(ENTITY_NOT_FOUND + "message");
+        var message = adopetMessageRepository.findById(dto.messageId()).orElseThrow(() -> new IllegalArgumentException(ENTITY_NOT_FOUND + "message"));
+        if (!tutor.getMessageList().contains(message)) throw new IllegalArgumentException(ENTITY_NOT_FOUND + "message");
+
+        message.update(dto);
+        adopetMessageRepository.save(message);
+        return new AdopetMessageResponseDTO(message);
     }
 
     @Transactional

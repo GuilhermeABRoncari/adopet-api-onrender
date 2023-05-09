@@ -29,7 +29,7 @@ public class ShelterService {
         if (shelterRepository.existsByEmail(dto.email())) throw new IllegalArgumentException(INVALID_EMAIL);
         var shelter = new Shelter(null, dto.userName(), dto.email(), dto.phone(),
                 securityConfigurations.passwordEncoder().encode(dto.password()),
-                dto.about(), dto.profileImage(), new Adress(dto.adress()), null, null);
+                dto.about(), dto.profileImage(), new Adress(dto.adress()), null, null, null);
         shelterRepository.save(shelter);
         return new UserResponseDTO(shelter);
     }
