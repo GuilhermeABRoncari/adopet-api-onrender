@@ -1,4 +1,4 @@
-package io.github.guilhermeabroncari.adopetapi.domain.entity.adoptaction;
+package io.github.guilhermeabroncari.adopetapi.domain.entity.adoption;
 
 import jakarta.validation.constraints.NotNull;
 

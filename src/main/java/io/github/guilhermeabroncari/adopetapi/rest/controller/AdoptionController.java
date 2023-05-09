@@ -1,7 +1,7 @@
 package io.github.guilhermeabroncari.adopetapi.rest.controller;
 
-import io.github.guilhermeabroncari.adopetapi.domain.entity.adoptaction.AdoptionRequestDTO;
-import io.github.guilhermeabroncari.adopetapi.domain.entity.adoptaction.AdoptionResponseDTO;
+import io.github.guilhermeabroncari.adopetapi.domain.entity.adoption.AdoptionRequestDTO;
+import io.github.guilhermeabroncari.adopetapi.domain.entity.adoption.AdoptionResponseDTO;
 import io.github.guilhermeabroncari.adopetapi.infra.security.AuthenticationFacade;
 import io.github.guilhermeabroncari.adopetapi.rest.service.AdoptionService;
 import jakarta.validation.Valid;

@@ -1,4 +1,4 @@
-package io.github.guilhermeabroncari.adopetapi.domain.entity.adoptaction;
+package io.github.guilhermeabroncari.adopetapi.domain.entity.adoption;
 
 import io.github.guilhermeabroncari.adopetapi.domain.entity.shelter.ShelterResponseDTO;
 import io.github.guilhermeabroncari.adopetapi.domain.entity.tutor.Tutor;

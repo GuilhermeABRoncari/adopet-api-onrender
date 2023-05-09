@@ -1,9 +1,9 @@
 package io.github.guilhermeabroncari.adopetapi.rest.service;
 
-import io.github.guilhermeabroncari.adopetapi.domain.entity.adoptaction.Adoption;
-import io.github.guilhermeabroncari.adopetapi.domain.entity.adoptaction.AdoptionRepository;
-import io.github.guilhermeabroncari.adopetapi.domain.entity.adoptaction.AdoptionRequestDTO;
-import io.github.guilhermeabroncari.adopetapi.domain.entity.adoptaction.AdoptionResponseDTO;
+import io.github.guilhermeabroncari.adopetapi.domain.entity.adoption.Adoption;
+import io.github.guilhermeabroncari.adopetapi.domain.entity.adoption.AdoptionRepository;
+import io.github.guilhermeabroncari.adopetapi.domain.entity.adoption.AdoptionRequestDTO;
+import io.github.guilhermeabroncari.adopetapi.domain.entity.adoption.AdoptionResponseDTO;
 import io.github.guilhermeabroncari.adopetapi.domain.entity.pet.PetRepository;
 import io.github.guilhermeabroncari.adopetapi.domain.entity.shelter.Shelter;
 import io.github.guilhermeabroncari.adopetapi.domain.entity.shelter.ShelterRepository;

@@ -2,7 +2,7 @@ package io.github.guilhermeabroncari.adopetapi.domain.entity.shelter;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.github.guilhermeabroncari.adopetapi.domain.entity.adopetmessage.AdopetMessage;
-import io.github.guilhermeabroncari.adopetapi.domain.entity.adoptaction.Adoption;
+import io.github.guilhermeabroncari.adopetapi.domain.entity.adoption.Adoption;
 import io.github.guilhermeabroncari.adopetapi.domain.entity.adress.Adress;
 import io.github.guilhermeabroncari.adopetapi.domain.entity.pet.Pet;
 import jakarta.persistence.*;
