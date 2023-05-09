@@ -1,7 +1,6 @@
 package io.github.guilhermeabroncari.adopetapi.domain.entity.adoption;
 
 import io.github.guilhermeabroncari.adopetapi.domain.entity.shelter.ShelterResponseDTO;
-import io.github.guilhermeabroncari.adopetapi.domain.entity.tutor.Tutor;
 
 import java.time.OffsetDateTime;
 
@@ -15,9 +14,9 @@ public record AdoptionResponseDTO(
         String comment,
         OffsetDateTime dateTime
 ) {
-    public AdoptionResponseDTO(Adoption adption, Tutor tutor) {
+    public AdoptionResponseDTO(Adoption adption) {
         this(adption.getId(), adption.getPet().getId(), adption.getPet().getName(),
-                tutor.getId(), tutor.getTutorName(), new ShelterResponseDTO(adption.getPet().getShelter()),
+                adption.getTutor().getId(), adption.getTutor().getTutorName(), new ShelterResponseDTO(adption.getShelter()),
                 adption.getComment(), adption.getDateTime());
     }
 }

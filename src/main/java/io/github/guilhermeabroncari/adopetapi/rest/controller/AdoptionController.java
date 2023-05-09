@@ -6,6 +6,8 @@ import io.github.guilhermeabroncari.adopetapi.infra.security.AuthenticationFacad
 import io.github.guilhermeabroncari.adopetapi.rest.service.AdoptionService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -24,8 +26,12 @@ public class AdoptionController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public AdoptionResponseDTO adopt(@RequestBody @Valid AdoptionRequestDTO dto) {
-        String email = getEmail();
-        return adoptionService.adopt(email, dto);
+        return adoptionService.adopt(getEmail(), dto);
+    }
+
+    @GetMapping
+    public Page<AdoptionResponseDTO> getPage(Pageable pageable) {
+        return adoptionService.getPage(getEmail(), pageable);
     }
 
     private String getEmail() {

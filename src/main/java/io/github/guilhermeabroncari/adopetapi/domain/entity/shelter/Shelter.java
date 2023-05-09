@@ -43,7 +43,7 @@ public class Shelter implements UserDetails {
     private List<Pet> petList = new ArrayList<>();
     @OneToMany(mappedBy = "shelter", cascade = CascadeType.ALL)
     private List<AdopetMessage> messageList = new ArrayList<>();
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "shelter", cascade = CascadeType.ALL)
     private List<Adoption> adoptions = new ArrayList<>();
 
     @Override

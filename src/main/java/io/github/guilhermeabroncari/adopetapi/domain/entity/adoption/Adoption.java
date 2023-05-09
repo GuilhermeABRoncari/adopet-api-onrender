@@ -2,6 +2,8 @@ package io.github.guilhermeabroncari.adopetapi.domain.entity.adoption;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.github.guilhermeabroncari.adopetapi.domain.entity.pet.Pet;
+import io.github.guilhermeabroncari.adopetapi.domain.entity.shelter.Shelter;
+import io.github.guilhermeabroncari.adopetapi.domain.entity.tutor.Tutor;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -21,9 +23,13 @@ public class Adoption {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "date_time")
-    private OffsetDateTime dateTime;
+    @ManyToOne
+    private Shelter shelter;
+    @ManyToOne
+    private Tutor tutor;
     @OneToOne
     private Pet pet;
     private String comment;
+    @Column(name = "date_time")
+    private OffsetDateTime dateTime;
 }

@@ -1,0 +1,1 @@
+ALTER TABLE adoptions ADD COLUMN tutor_id BIGINT, ADD CONSTRAINT fk_adoption_tutor FOREIGN KEY(tutor_id) REFERENCES tutors (id);

@@ -1,0 +1,1 @@
+ALTER TABLE adoptions ADD COLUMN shelter_id BIGINT, ADD CONSTRAINT fk_adoption_shelter FOREIGN KEY(shelter_id) REFERENCES shelters (id);
