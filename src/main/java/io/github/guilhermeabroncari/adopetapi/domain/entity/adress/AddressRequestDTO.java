@@ -3,7 +3,7 @@ package io.github.guilhermeabroncari.adopetapi.domain.entity.adress;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record AdressRequestDTO(
+public record AddressRequestDTO(
         @NotNull
         Integer cep,
         @NotBlank

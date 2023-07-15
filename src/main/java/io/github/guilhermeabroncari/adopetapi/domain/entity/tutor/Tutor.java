@@ -2,8 +2,7 @@ package io.github.guilhermeabroncari.adopetapi.domain.entity.tutor;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.github.guilhermeabroncari.adopetapi.domain.entity.adopetmessage.AdopetMessage;
-import io.github.guilhermeabroncari.adopetapi.domain.entity.adress.Adress;
-import io.github.guilhermeabroncari.adopetapi.domain.entity.user.UserRequestDTO;
+import io.github.guilhermeabroncari.adopetapi.domain.entity.adress.Address;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -12,9 +11,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.beans.Encoder;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -39,7 +36,7 @@ public class Tutor implements UserDetails {
     @Column(name = "tutor_profile_image")
     private String tutorProfileImage;
     @Embedded
-    private Adress adress;
+    private Address address;
     @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL)
     private List<AdopetMessage> messageList = new ArrayList<>();
 
@@ -82,6 +79,6 @@ public class Tutor implements UserDetails {
         if (dto.phone() != null) this.phone = dto.phone();
         if (dto.about() != null) this.about = dto.about();
         if (dto.profileImage() != null) this.tutorProfileImage = dto.profileImage();
-        if (dto.adress() != null) this.adress.update(dto.adress());
+        if (dto.adress() != null) this.address.update(dto.adress());
     }
 }

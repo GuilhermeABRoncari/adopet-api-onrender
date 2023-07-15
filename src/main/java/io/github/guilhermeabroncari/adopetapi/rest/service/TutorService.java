@@ -1,6 +1,6 @@
 package io.github.guilhermeabroncari.adopetapi.rest.service;
 
-import io.github.guilhermeabroncari.adopetapi.domain.entity.adress.Adress;
+import io.github.guilhermeabroncari.adopetapi.domain.entity.adress.Address;
 import io.github.guilhermeabroncari.adopetapi.domain.entity.tutor.Tutor;
 import io.github.guilhermeabroncari.adopetapi.domain.entity.tutor.TutorRepository;
 import io.github.guilhermeabroncari.adopetapi.domain.entity.tutor.TutorResponseDTO;
@@ -29,7 +29,7 @@ public class TutorService {
         if (tutorRepository.existsByEmail(dto.email())) throw new IllegalArgumentException(INVALID_EMAIL);
         var tutor = new Tutor(null, dto.userName(), dto.email(), dto.phone(),
                 securityConfigurations.passwordEncoder().encode(dto.password()), dto.about(),
-                dto.profileImage(), new Adress(dto.adress()), null);
+                dto.profileImage(), new Address(dto.address()), null);
         tutorRepository.save(tutor);
         return new UserResponseDTO(tutor);
     }

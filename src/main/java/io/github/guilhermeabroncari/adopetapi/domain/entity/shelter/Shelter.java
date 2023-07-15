@@ -3,7 +3,7 @@ package io.github.guilhermeabroncari.adopetapi.domain.entity.shelter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.github.guilhermeabroncari.adopetapi.domain.entity.adopetmessage.AdopetMessage;
 import io.github.guilhermeabroncari.adopetapi.domain.entity.adoption.Adoption;
-import io.github.guilhermeabroncari.adopetapi.domain.entity.adress.Adress;
+import io.github.guilhermeabroncari.adopetapi.domain.entity.adress.Address;
 import io.github.guilhermeabroncari.adopetapi.domain.entity.pet.Pet;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -38,7 +38,7 @@ public class Shelter implements UserDetails {
     @Column(name = "shelter_profile_image")
     private String shelterProfileImage;
     @Embedded
-    private Adress adress;
+    private Address address;
     @OneToMany(mappedBy = "shelter", cascade = CascadeType.ALL)
     private List<Pet> petList = new ArrayList<>();
     @OneToMany(mappedBy = "shelter", cascade = CascadeType.ALL)
@@ -85,6 +85,6 @@ public class Shelter implements UserDetails {
         if (dto.phone() != null) this.password = dto.phone();
         if (dto.about() != null) this.about = dto.about();
         if (dto.profileImage() != null) this.shelterProfileImage = dto.profileImage();
-        if (dto.adress() != null) this.adress.update(dto.adress());
+        if (dto.adress() != null) this.address.update(dto.adress());
     }
 }

@@ -39,7 +39,7 @@ public class PetService {
         int end = Math.min(start + pageable.getPageSize(), petList.size());
         List<Pet> sublist = petList.subList(start, end);
 
-        List<PetResponseDTO> petResponseList = sublist.stream().map(PetResponseDTO::new).collect(Collectors.toList());
+        List<PetResponseDTO> petResponseList = sublist.stream().map(PetResponseDTO::new).toList();
 
         return new PageImpl<>(petResponseList, pageable, petList.size());
     }

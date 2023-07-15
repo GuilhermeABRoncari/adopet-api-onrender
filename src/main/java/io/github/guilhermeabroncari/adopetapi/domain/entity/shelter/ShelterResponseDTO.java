@@ -1,9 +1,9 @@
 package io.github.guilhermeabroncari.adopetapi.domain.entity.shelter;
 
-import io.github.guilhermeabroncari.adopetapi.domain.entity.adress.AdressResponseDTO;
+import io.github.guilhermeabroncari.adopetapi.domain.entity.adress.AddressResponseDTO;
 
-public record ShelterResponseDTO(Long shelterId, String shelterName, String phone, String email, AdressResponseDTO adress) {
+public record ShelterResponseDTO(Long shelterId, String shelterName, String phone, String email, AddressResponseDTO adress) {
     public ShelterResponseDTO(Shelter shelter) {
-        this(shelter.getId(), shelter.getShelterName(), shelter.getPhone(), shelter.getEmail(), new AdressResponseDTO(shelter.getAdress()));
+        this(shelter.getId(), shelter.getShelterName(), shelter.getPhone(), shelter.getEmail(), new AddressResponseDTO(shelter.getAddress()));
     }
 }

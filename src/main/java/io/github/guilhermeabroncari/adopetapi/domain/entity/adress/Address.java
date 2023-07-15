@@ -1,6 +1,5 @@
 package io.github.guilhermeabroncari.adopetapi.domain.entity.adress;
 
-import io.github.guilhermeabroncari.adopetapi.domain.entity.shelter.ShelterUpdateDTO;
 import jakarta.persistence.Embeddable;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @Embeddable
 @NoArgsConstructor
-public class Adress {
+public class Address {
     private Integer cep;
     private String state;
     private String city;
@@ -16,7 +15,7 @@ public class Adress {
     private String street;
     private String number;
 
-    public Adress(AdressRequestDTO adress) {
+    public Address(AddressRequestDTO adress) {
         this.cep = adress.cep();
         this.state = adress.state();
         this.city = adress.city();
@@ -25,7 +24,7 @@ public class Adress {
         this.number = adress.number();
     }
 
-    public void update(AdressUpdateDTO adress) {
+    public void update(AddressUpdateDTO adress) {
         if (adress.cep() != null) this.cep = adress.cep();
         if (adress.state() != null) this.state = adress.state();
         if (adress.city() != null) this.city = adress.city();
